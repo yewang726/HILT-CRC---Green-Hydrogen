@@ -258,7 +258,11 @@ def WindSource(location, casedir=None, solcast_TMY=False):
                                    'S':["Speed", 'm/s',150],
                                    'D':["Direction",'degrees',150],
                                    'P':['Pressure','atm',150]})
-        data_150 = heading_150.append(data_150).reset_index(drop=True)
+
+        print('type(data_150) = ',type(data_150)) # checking datatype of data_150
+        print('type(heading_150) = ', type(heading_150))  # checking datatype of heading_150
+
+        data_150 = heading_150._append(data_150).reset_index(drop=True)
         data = data_150.copy()
         Z_anem = 150
         
@@ -268,7 +272,7 @@ def WindSource(location, casedir=None, solcast_TMY=False):
         data_temp = data_10.iloc[3:].copy()
         S = data_temp.apply(lambda x:speed(Z, Z_anem, data_temp['S']) )
         data_temp.S = S['S']
-        data_10 = data_10.iloc[0:3].append(data_temp,ignore_index=True)
+        data_10 = data_10.iloc[0:3]._append(data_temp,ignore_index=True)
         data = pd.concat([data , data_10],axis=1)
         
             
@@ -279,7 +283,7 @@ def WindSource(location, casedir=None, solcast_TMY=False):
         data.index = data.index+1
         data.sort_index(inplace=True)
         
-        data_text = data.to_csv(header=False, index=False, line_terminator='\n')
+        data_text = data.to_csv(header=False, index=False, lineterminator='\n')
         text_file = open(wea_fn , "w")
         text_file.write(data_text)
         text_file.close()

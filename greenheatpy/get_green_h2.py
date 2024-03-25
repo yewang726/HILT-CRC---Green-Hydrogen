@@ -3,7 +3,7 @@ Created on Thu Jan 12 10:21:54 2023 @author: Ye Wang
 
 Get the CF and LCOH2 results for different locations, present-day and future costs, from the HILT Green Hydrogen project  
 """
-from greenheatpy.projdirs import hilt_svn_repo
+#from greenheatpy.projdirs import hilt_svn_repo
 from openpyxl import load_workbook
 import numpy as np
 

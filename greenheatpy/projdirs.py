@@ -10,10 +10,10 @@ import platform
 
 ## TODO
 # setup basedir
-basedir = '/media/yewang/Data/Work/Research/Topics/yewang/HILTCRC/repo' 
+basedir = 'C:/Users/timon/Documents/ANU/GitGreenHeat'
 
-hilt_svn_repo='/media/yewang/Data/Work/Research/Topics/svn-hilt'
-wea_repo= hilt_svn_repo+'/weather/TMY DATA for H2 HUBS/'
+#hilt_svn_repo='/media/yewang/Data/Work/Research/Topics/svn-hilt'
+wea_repo= basedir+'/weather' #'/TMY DATA for H2 HUBS/'
 
 if platform.system()=="Windows":
 	connector = '\\'
